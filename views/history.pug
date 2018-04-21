@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/history.css')
+  a(class='btn btn-info', role='button', href='/user') 返回上一层
+  - if (userInfo)
+      div(class='card text-white bg-info mb-3')
+        div(class='card-header') 用户: #{userInfo.schoolnum}
+        div(class='card-body')
+          h5(class='card-credits') 总积分: #{userInfo.credits}，邀请积分: #{userInfo.inviteCredits}
+  -   userInfo.history.forEach((item) => {
+        div(class='card text-white bg-info mb-3')
+          div(class='card-header') 日期: #{item.date.y} 年 #{item.date.m} 月 #{item.date.d} 日
+          div(class='card-body')
+            h5(class='card-credits') 得分 #{item.credit}
+  - })

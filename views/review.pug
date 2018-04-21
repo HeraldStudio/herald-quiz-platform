@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/review.css')
+  - if (ansStruct)
+  -   if (ansStruct.credit < 6)
+        div(class='alert alert-danger', role='alert')
+          strong 您的最终得分为: #{ansStruct.credit}
+  -   else
+        div(class='alert alert-success', role='alert')
+          strong 您的最终得分为: #{ansStruct.credit}
+  -   ansStruct.answers.forEach((r) => {
+        div(class='card')
+          div(class='card-header')
+            h5(class='card-question') #{r.original.q}
+          div(class='card-body')
+            h4(class='choice') A.#{r.original.a}
+          div(class='card-body')
+            h4(class='choice') B.#{r.original.b}
+          div(class='card-body')
+            h4(class='choice') C.#{r.original.c}
+          div(class='card-body')
+            h4(class='choice') D.#{r.original.d}
+          div(class='card-body')
+            h4(class='choice') 您的答案: #{r.yourAns}
+          - if (r.isRight)
+              div(class='alert alert-success', role='alert')
+                strong 回答正确
+          - if (!r.isRight)
+              div(class='alert alert-danger', role='alert')
+                strong 正确选项为:
+                strong #{r.original.t}
+  - });
+  a(href='/user' class='return btn btn-primary') 返回主界面
+  
+  

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/share.css')
+  - if (qrcode)
+      div(class='card')
+        div(class='card-img')
+          img(src=qrcode.qrcode, class='card-img-top', alt='Card image cap')
+        div(class='card-body')
+          h5(class='card-body') 分享好友答题，增加个人积分1分，每人每周上限为5分哦！
+        a(class='btn btn-lg btn-primary btn-block login_btn', href='/user') 返回

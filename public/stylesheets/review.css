@@ -1,0 +1,47 @@
+
+
+.card {
+  margin-top: 10px;
+}
+
+.card-number {
+  font-size: 35px;
+}
+
+.card-question {
+  font-size: 35px;
+}
+
+.choice {
+  font-size: 35px;
+}
+
+.card-header {
+  font-size: 40px;
+}
+
+.card-body {
+  font-size: 35px;
+}
+
+.alert {
+  font-size: 40px;
+}
+
+.btn a:active,
+.btn a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.return {
+  font-size: 45px;
+  color: #FFFFFF;
+}
+
+.btn {
+  font-size: 45px;
+  color: #FFFFFF;
+  text-decoration: none;
+  width: 100%;
+}

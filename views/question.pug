@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  script.
+    var countDownTime = new Date(Date.now()).getTime() + #{quizTime};
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get todays date and time
+      var now = new Date(Date.now()).getTime();
+      // Find the distance between now an the count down date
+      var distance = countDownTime - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("count-down").innerHTML = '答题时间还剩: ' + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text 
+      if (distance <= 0) {    // 6000ms
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "你超时啦！";
+      }
+    }, 1000);
+  div(id='count-down', class='alert alert-danger', role='alert')
+  link(rel='stylesheet', href='/stylesheets/question.css')
+  form(action='/question/judge', enctype='application/json', method='post', id='answer-form')
+    - if (questions)
+    -   questions.forEach((q) => {
+          div(class='card')
+            div(class='card-header')
+              h4(class='card-number') 第#{q.i+1}题
+              h5(class='card-question') #{q.q}
+            div(class='card-body')
+              div(class='form-check')
+                input(name='id', value=q._id, style='display: none')
+                label(class='label-container') #{q.a}
+                  input(type='radio', name=q._id, id=q.i, value='A')
+                  span(class='label-checkmark')
+                label(class='label-container') #{q.b}
+                  input(type='radio', name=q._id, id=q.i, value='B')
+                  span(class='label-checkmark')
+                label(class='label-container') #{q.c}
+                  input(type='radio', name=q._id, id=q.i, value='C')
+                  span(class='label-checkmark')
+                label(class='label-container') #{q.d}
+                  input(type='radio', name=q._id, id=q.i, value='D')
+                  span(class='label-checkmark')
+    - });
+  button(type='submit', class='btn btn-lg btn-primary btn-block submit-button', id='submit', form='answer-form', value='submit') 提交
+  

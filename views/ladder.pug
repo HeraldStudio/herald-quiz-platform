@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/ladder.css')
+  - if (ladderList)
+      div(class='ladder-body')
+        div(class='alert alert-success', role='alert')
+          strong 本排行榜时时更新前20名的积分,加油哦
+        div(class='ladder-list')
+          - ladderList.forEach((item) => {
+              div(class='card bg-primary text-white')
+                div(class='card-header')
+                  h5(class='card-header') 用户: #{item.schoolnum}
+                div(class='card-body')
+                  h5(class='card-body') 总积分: #{item.credits}  邀请加分: #{item.inviteCredits}
+          - });
+  a(class='btn btn-lg btn-primary btn-block', href='/user') 返回

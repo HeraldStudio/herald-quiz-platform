@@ -1,0 +1,67 @@
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+img {
+  width:530px;
+  height: 530px;
+  z-index:-1;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.rights-reserved {
+  font-size: 35px;
+}
+
+.blank_img {
+  height: 70px;
+}
+
+.blank_btn {
+  height: 20px;
+}
+
+.img_btn {
+  margin-right: : 0px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.navbar-brand {
+  text-align: center;
+  font-size: 30px;
+}
+
+.btn a:active,
+.btn a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn {
+  font-size: 45px;
+}
+
+.alert {
+  font-size: 45px;
+}
+
+.btn-group-vertical {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  .img_btn
+    img(src='/images/SEU_Logo.svg')
+    .blank_img
+    .rights-reserved
+      p 主办方：东南大学党委研工部
+      p 承办方：党支部联合中心
+      p 技术支持：
+        a(href='https://myseu.cn', class='MonkeyLink') 小猴偷米工作室
+    .btn-group-vertical
+      a(href='/register' class='btn btn-primary', role='button') 注册
+      .blank_btn
+      a(href='/login' class='btn btn-primary', role='button') 登录
+    - if (error)
+      div(class='alert alert-danger', role='alert')
+        strong #{error}
+    - if (success)
+      div(class='alert alert-success', role='alert')
+        strong #{success}

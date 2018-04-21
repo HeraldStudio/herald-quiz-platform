@@ -1,0 +1,28 @@
+body {
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.btn {
+  font-size: 40px;
+  width: inherit;
+}
+
+.schoolnum,
+.card-slogan,
+.card {
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.card-credits {
+  font-size: 35px;
+}

@@ -1,0 +1,108 @@
+/* body {
+  padding: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+} */
+
+.alert {
+  font-size: 35px;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: sticky;
+  top: 15px;
+  z-index: 500;
+}
+
+.card {
+  margin-top: 10px;
+}
+
+.card-number {
+  font-size: 35px;
+}
+
+.card-header {
+  font-size: 40px;
+}
+
+.card-body {
+  font-size: 40px;
+}
+
+/* The container */
+.label-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.label-checkmark {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.card-question {
+  font-size: 35px;
+}
+
+/* On mouse-over, add a grey background color */
+.label-container:hover input ~ .label-checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.label-container input:checked ~ .label-checkmark {
+    background-color: #FF0000;
+}
+
+.label-container {
+  margin-left: 20px;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.label-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.label-container input:checked ~ .label-checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.label-container .label-checkmark:after {
+ 	top: 7px;
+	left: 7px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: white;
+}
+
+.submit-button {
+  font-size: 35px;
+}

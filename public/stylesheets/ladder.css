@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.alert {
+  font-size: 35px;
+}
+
+.ladder-list {
+  margin-top: 30px;
+}
+
+.card {
+  margin-top: 10px;
+}
+
+.card-header {
+  font-size: 40px;
+}
+
+.card-body {
+  font-size: 40px;
+}
+
+.btn {
+  margin-top: 20px;
+  font-size: 40px;
+}

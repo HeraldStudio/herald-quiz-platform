@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  div
+    img(src='/images/Party_Logo.svg')
+    form(class='form-login', action='/login', method='post')
+      .schoolnum
+        label(for='schoolnum', class='sr-only')
+        input(type='text', name='schoolnum', id='schoolnum', class='form-control', placeholder='学号')
+      .password
+        label(for='password', class='sr-only')
+        input(type='password', name='password', id='password', class='form-control', placeholder='密码')
+      button(class='btn btn-lg btn-primary btn-block login_btn', id='submit', type='submit') 登录
+      a(class='btn btn-lg btn-primary btn-block login_btn', href='/') 返回
+      - if (error)
+          div(class='alert alert-danger', role='alert')
+            strong #{error}
+      - if (success)
+        div(class='alert alert-success', role='alert')
+          strong #{success}

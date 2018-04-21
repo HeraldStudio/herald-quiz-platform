@@ -1,0 +1,11 @@
+html,
+body {
+  height: 100%;
+}
+
+footer {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 30px;
+  bottom: 0px;
+}
