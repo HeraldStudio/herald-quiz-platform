@@ -2,10 +2,6 @@
 
 > 东南大学两学一做答题活动项目，最初由祁辉完成[[liangxueyizuo](https://github.com/cherishher/liangxueyizuo)](`Tornado+MySQL`)，现在迁移到`express+mongodb`
 
-整个项目基本能应付学校项目，希望有一些用处吧...
-
-![screenshot](.screenshots/pt2018_04_10_01_23_27.jpg)
-
 ### Features
 
 应研究生相关方面的要求主要完成的功能有
