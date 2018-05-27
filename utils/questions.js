@@ -11,31 +11,55 @@ module.exports = {
   checkAnswerTimes: async function checkAnswerTimes(user) {
     const userModel = require('../database/users').userModel;
     const getUserInfo = require('./user').getUserInfo;
-    const choicesPerDay = require('../config/default').choicesPerDay;
+    const periodUnit = require('../config/default').periodUnit;
+    const choicesPerPeriod = require('../config/default').choicesPerPeriod;
     let userInfo = await getUserInfo({ schoolnum: user.schoolnum });
 
-    let todayAnswer = 0;
-    let today = {
-      y: (new Date(Date.now()).getFullYear()).toString(),
-      m: (new Date(Date.now()).getMonth()+1).toString(),  // js months start from 0
-      d: (new Date(Date.now()).getDate()).toString()
-    }
-
-    // fix me: have not found a proper way to use subdoc of mongoose;
-    userInfo.history.forEach((item) => {
-      if (item.date.y == today.y
-        && item.date.m == today.m
-        && item.date.d == today.d) {
-        todayAnswer ++;
+    if (periodUnit === 'day') {
+      let todayAnswer = 0;
+      let today = {
+        y: (new Date(Date.now()).getFullYear()).toString(),
+        m: (new Date(Date.now()).getMonth()+1).toString(),  // js months start from 0
+        d: (new Date(Date.now()).getDate()).toString()
       }
-    });
 
-    // fix me: too much loops
-    if (todayAnswer >= choicesPerDay) {
-      return false;
-    } else {
-      return true;
+      // fix me: have not found a proper way to use subdoc of mongoose;
+      userInfo.history.forEach((item) => {
+        if (item.date.y == today.y
+          && item.date.m == today.m
+          && item.date.d == today.d) {
+          todayAnswer ++;
+        }
+      });
+
+      // fix me: too much loops
+      if (todayAnswer >= choicesPerPeriod - 1) {
+        return false;
+      } else {
+        return true;
+      }
+
+    } else if (periodUnit === 'week') {
+      let weekAnswer = 0;
+      userInfo.history.forEach((item) => {
+        let now = new Date();
+        let onejan = new Date(now.getFullYear(), 0, 1);
+        let thisWeek = Math.ceil( (((now - onejan) / 86400000) + onejan.getDay() + 1) / 7 );
+
+        let itemDate = new Date(parseInt(item.date.y), parseInt(item.date.m)-1, parseInt(item.date.d));
+        let itemWeek = Math.ceil( (((now - onejan) / 86400000) + (new Date(now.getFullYear(), 0, 1)).getDay() + 1) / 7 );
+        if (thisWeek === itemWeek) {
+          weekAnswer ++;
+        }
+      });
+
+      if (weekAnswer >= choicesPerPeriod - 1) {
+        return false;
+      } else {
+        return true;
+      }
     }
+
   },
 
   // get questions

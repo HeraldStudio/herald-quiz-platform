@@ -22,6 +22,7 @@ module.exports = {
     const getUserInfo = require('./user').getUserInfo;
     const updateUserInfo = require('./user').updateUserInfo;
     const userModel = require('../database/users').userModel;
+    const config    = require('../config/default');
     let userInfo = await getUserInfo({ schoolnum: user.schoolnum });
     if (userInfo && userInfo.register == true) {
       // someone who has registered
@@ -36,14 +37,18 @@ module.exports = {
       await updateUserInfo({ schoolnum: user.schoolnum }, userInfo);
     } else {
       // someone whoes data hasn't been transfered in
-      let initUser = {
-        schoolnum: user.schoolnum,
-        password: user.password,
-        register: true,
-        credits: 0,
-        inviteCredits: 0
+      if (config.allow_other_people === true) {
+        let initUser = {
+          schoolnum: user.schoolnum,
+          password: user.password,
+          register: true,
+          credits: 0,
+          inviteCredits: 0
+        }
+        await userModel.create(initUser);
+      } else {
+        throw new Error('您没有权限注册，请联系管理员');
       }
-      await userModel.create(initUser);
     }
   }
 }
