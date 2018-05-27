@@ -33,7 +33,7 @@ module.exports = {
       });
 
       // fix me: too much loops
-      if (todayAnswer >= choicesPerPeriod - 1) {
+      if (todayAnswer > choicesPerPeriod - 1) {
         return false;
       } else {
         return true;
@@ -53,7 +53,7 @@ module.exports = {
         }
       });
 
-      if (weekAnswer >= choicesPerPeriod - 1) {
+      if (weekAnswer > choicesPerPeriod - 1) {
         return false;
       } else {
         return true;
