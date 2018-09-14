@@ -28,7 +28,7 @@ module.exports = {
   // get ladder ladder
   getLadderList: async function getLadderList(n) {
     const userModel = require('../database/users').userModel;
-    let ladderList = await userModel.find().sort({credits: -1}).limit(n).exec();
+    let ladderList = await userModel.find({ register: true }).sort({ credits: -1 }).limit(n).exec();
     return ladderList;
   },
   // add users

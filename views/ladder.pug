@@ -2,11 +2,11 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/ladder.css')
-  a(class='btn btn-lg btn-primary btn-block', href='/user') 返回
   - if (ladderList)
       div(class='ladder-body')
         div(class='alert alert-success', role='alert')
           strong 本排行榜时时更新前20名的积分,加油哦
+        a(class='btn btn-lg btn-primary btn-block', href='/user') 返回
         div(class='ladder-list')
           - ladderList.forEach((item) => {
               div(class='card bg-primary text-white')
