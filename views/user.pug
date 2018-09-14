@@ -14,13 +14,11 @@ block content
           div(class='card-header')
             h4(class='schoolnum') 欢迎 #{userInfo.name} 
           div(class='card-body')
-            p(style='font-size: 20px;') 请确认身份信息，本信息不会泄露 :)
+            p(style='font-size: 20px;') 请确认您的身份信息
             h5(class='card-credits') 所属支部 #{userInfo.branch} 
             h5(class='card-credits') 所属党委 #{userInfo.committee}
             - if (rank)
               h5(class='card-credits') 您当前的积分为 #{userInfo.credits} 处于前 #{rank} %
-            h4(class='card-slogan') 不忘初心，牢记使命
-            h5(class='card-hint') 请选择您的操作
         a(href='/question/rules', class='btn btn-danger', role='button') 开始答题
         a(href='/user/history', class='btn btn-danger', role='button') 我的答题记录
         a(href='/user/ladder', class='btn btn-danger', role='button') 答题天梯榜

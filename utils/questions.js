@@ -48,12 +48,11 @@ module.exports = {
 
         let itemDate = new Date(parseInt(item.date.y), parseInt(item.date.m)-1, parseInt(item.date.d));
         let itemWeek = Math.ceil( (((now - onejan) / 86400000) + (new Date(now.getFullYear(), 0, 1)).getDay() + 1) / 7 );
-        if (thisWeek === itemWeek) {
+        if (thisWeek === itemWeek)
           weekAnswer ++;
-        }
       });
 
-      if (weekAnswer > choicesPerPeriod - 1) {
+      if (weekAnswer > choicesPerPeriod) {
         return false;
       } else {
         return true;
@@ -106,6 +105,7 @@ module.exports = {
     };
 
     // judge answer
+		let _id = 0;
     for (let id of answers.id){
       let q = await questionModel.findOne({_id:id}).exec();
       let qa_obj = {
@@ -123,9 +123,11 @@ module.exports = {
       res.push(qa_obj);
       newHistory.questions.push({
         _id: q._id,
+				idx: _id,
         ans: qa_obj.yourAns,
         t: q.t
       });
+			_id ++;
     }
     newHistory.credit = credits;
     // store data into user database

@@ -1,4 +1,4 @@
-# TwoLearnOneAction
+# 两学一做答题平台
 
 > 东南大学两学一做答题活动项目，最初由祁辉完成[[liangxueyizuo](https://github.com/cherishher/liangxueyizuo)](`Tornado+MySQL`)，现在迁移到`express+mongodb`
 
@@ -12,10 +12,6 @@
 - [x] 上传题目(csv格式)
 - [x] 排行榜，天梯
 - [x] 分享、邀请加分
-
-### Architecture
-
-简单的来说，是一个`express+mongodb`应用，模板引擎选择了`Pug`，以及`Bootstrap`的一些组件。
 
 #### Router
 
@@ -99,11 +95,23 @@ module.exports = {
 
 #### Quiz
 
-试题上传需采用`csv`格式，如
+试题上传需采用 `csv` 格式，如
 
 ```csv
 2015年10月18日，中共中央印发了《中国共产党廉洁自律准则》（《准则》）和《中国共产党纪律处分条例》（《条例》），《准则》的正式施行时间为____。,2015年10月18日,2016年1月1日,2016年7月1日,2015年12月1日,B
 ```
+
+可自行修改 `/utils/upload.js` 解析 `csv` 的格式
+
+#### Users
+
+答题人员名单采用 `csv` 格式，如
+
+```csv
+学号,张三,所属党支部,所属党委
+```
+
+可自行修改 `/utils/user.js` 解析 `csv` 的格式
 
 #### Benchmarking
 

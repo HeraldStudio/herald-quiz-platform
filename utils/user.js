@@ -47,10 +47,10 @@ module.exports = {
       setTimeout(async () => {
         // compose the questions
         let userItem = {
-          schoolnum: record[0],
-          name: record[1],
-          branch: record[8],
-          committee: record[9],
+          schoolnum: record[1],
+          name: record[2],
+          branch: record[7],
+          committee: record[8],
           register: false
         }
         await userModel.create(userItem);

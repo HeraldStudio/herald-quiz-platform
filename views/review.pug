@@ -9,10 +9,11 @@ block content
   -   else
         div(class='alert alert-success', role='alert')
           strong 您的最终得分为: #{ansStruct.credit}
+  -   let idx = 1;
   -   ansStruct.answers.forEach((r) => {
         div(class='card')
           div(class='card-header')
-            h5(class='card-question') #{r.original.q}
+            h5(class='card-question') #{idx}. #{r.original.q}
           div(class='card-body')
             h4(class='choice') A.#{r.original.a}
           div(class='card-body')
@@ -30,6 +31,7 @@ block content
               div(class='alert alert-danger', role='alert')
                 strong 正确选项为:
                 strong #{r.original.t}
+          - idx ++;
   - });
   a(href='/user' class='return btn btn-primary') 返回主界面
   

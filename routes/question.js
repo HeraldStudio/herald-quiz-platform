@@ -17,7 +17,7 @@ router.get('/rules', checkLogin, async (req, res, next) => {
   if (judge) {
     return res.render('rules');
   } else {
-    req.flash('success', '本周期内的次数用完啦！明天再来吧');
+    req.flash('success', '本周期内的次数用完啦！下周再来吧');
     return res.redirect('/user');
   }
 });
