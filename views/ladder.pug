@@ -2,6 +2,7 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/ladder.css')
+  a(class='btn btn-lg btn-primary btn-block', href='/user') 返回
   - if (ladderList)
       div(class='ladder-body')
         div(class='alert alert-success', role='alert')
@@ -14,4 +15,3 @@ block content
                 div(class='card-body')
                   h5(class='card-body') 总积分: #{item.credits}  邀请加分: #{item.inviteCredits}
           - });
-  a(class='btn btn-lg btn-primary btn-block', href='/user') 返回
