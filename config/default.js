@@ -14,5 +14,5 @@ module.exports = {
   maxSharedUsers: 5,          // max allowed sharing-credits
   quizTime: 300000,           // permitted quiz time (in ms) This is a fake frontend timer :)
   uploadTmpFiles: './uploads',// uploads dest
-  allow_other_people: false
+  allow_other_people: true
 }
