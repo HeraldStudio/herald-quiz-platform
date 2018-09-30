@@ -47,8 +47,10 @@ module.exports = {
         let thisWeek = Math.ceil( (((now - onejan) / 86400000) + onejan.getDay() + 1) / 7 );
 
         let itemDate = new Date(parseInt(item.date.y), parseInt(item.date.m)-1, parseInt(item.date.d));
-        let itemWeek = Math.ceil( (((now - onejan) / 86400000) + (new Date(now.getFullYear(), 0, 1)).getDay() + 1) / 7 );
-        if (thisWeek === itemWeek)
+        let itemWeek = Math.ceil( (((itemDate - onejan) / 86400000) + onejan.getDay() + 1) / 7 );
+        console.log("thisweek: "+thisWeek)
+        console.log("itemweek: "+(itemWeek))
+        if (thisWeek === itemWeek + 1)
           weekAnswer ++;
       });
 
