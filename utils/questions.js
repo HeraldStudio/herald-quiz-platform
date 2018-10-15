@@ -38,7 +38,6 @@ module.exports = {
       } else {
         return true;
       }
-
     } else if (periodUnit === 'week') {
       let weekAnswer = 0;
       userInfo.history.forEach((item) => {
@@ -48,9 +47,7 @@ module.exports = {
 
         let itemDate = new Date(parseInt(item.date.y), parseInt(item.date.m)-1, parseInt(item.date.d));
         let itemWeek = Math.ceil( (((itemDate - onejan) / 86400000) + onejan.getDay() + 1) / 7 );
-        console.log("thisweek: "+thisWeek)
-        console.log("itemweek: "+(itemWeek))
-        if (thisWeek === itemWeek + 1)
+        if (thisWeek === itemWeek)
           weekAnswer ++;
       });
 
@@ -60,7 +57,6 @@ module.exports = {
         return true;
       }
     }
-
   },
 
   // get questions
