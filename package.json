@@ -12,6 +12,7 @@
     "cookie-parser": "~1.4.3",
     "csv-parse": "^2.2.0",
     "debug": "~2.6.9",
+    "excel4node": "^1.7.0",
     "express": "~4.16.0",
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",

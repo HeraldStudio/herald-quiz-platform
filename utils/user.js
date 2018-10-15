@@ -17,6 +17,12 @@ module.exports = {
     let userInfo = await userModel.findOne(user).exec();
     return userInfo;
   },
+  // get all registered users
+  getRegisteredUsers: async function getRegisteredUser() {
+    const userModel = require('../database/users').userModel;
+    let usersInfo = await userModel.find({ register: true }).exec();
+    return usersInfo;
+  },
   // getUserRank
   getUserRank: async function getUserRank(user) {
     const userModel = require('../database/users').userModel;

@@ -8,4 +8,5 @@ module.exports = function (app) {
   app.use('/user'      , require('./user')     );      // user page
   app.use('/admin'     , require('./admin')    );      // admin page
   app.use('/share'     , require('./share')    );      // share link
+  app.use('/download'  , require('./download') );      // download page
 }
